@@ -1,3 +1,5 @@
+/* 반응형 width값 변경 시 자연스러운 동적 추가 기능 */
+* {transition: width 0.3s;}
 /* header, footer 전용 위치 */
 /* header pc */
 header {
@@ -44,12 +46,13 @@ header .lnb .content_link {
 }
 header .lnb .alarm {width: 32px; height: 32px;}
 header .lnb .alarm img {filter: invert(1); width: 100%;}
-/* img태그를 반응형처리를 할 경우는 img는 width:100%상대값으로 설정하고, img의 부모태그한테 원하는 px크기를 적용하는 방향으로 처리한다. */
+/* img태그를 반응형처리를 할 경우는 img는 widㄴth:100%상대값으로 설정하고, img의 부모태그한테 원하는 px크기를 적용하는 방향으로 처리한다. */
 /* header tablet + mobile nav */
 header .lnb .m_nav {
     background: darkolivegreen;
     width: 32px; height: 32px;
     position: relative;
+    display: none;   /* pc숨기기 */
 }
 header .lnb .m_nav span {
     display: block; height: 5px; width: 100%; background: #fff;
@@ -68,10 +71,24 @@ header .lnb .m_nav span:nth-child(3) {
     transform: rotate(-45deg);
     transform-origin:left top;
 } */
-header .m_nav_wrap {display: none;}
-header .m_nav_wrap .gnb {}
-header .m_nav_wrap .gnb > li {}
-header .m_nav_wrap .gnb > li > a {}
-header .m_nav_wrap .gnb > li > .sub {}
-header .m_nav_wrap .gnb > li > .sub li {}
-header .m_nav_wrap .gnb > li > .sub li a {}
+header .m_nav_wrap {
+    background: #222;
+    position: fixed; right: 0; top: 80px; z-index: 999;
+}
+header .m_nav_wrap .gnb {
+    width: 468px; height: 744px;
+}
+header .m_nav_wrap .gnb > li {margin-bottom: 52px;}
+header .m_nav_wrap .gnb > li > a {
+    color: #fff; font-size: 20px;
+    padding: 109px 148px;}
+header .m_nav_wrap .gnb > li > .sub {
+    position: relative;
+}
+header .m_nav_wrap .gnb > li > .sub li {
+    margin: 12px; text-align: center;
+}
+header .m_nav_wrap .gnb > li > .sub li a {
+    color: #fff; font-size: 13px;
+
+}
